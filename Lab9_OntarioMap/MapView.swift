@@ -26,6 +26,8 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        
+        // Clear everything (safe + predictable)
         uiView.removeAnnotations(uiView.annotations)
         uiView.removeOverlays(uiView.overlays)
         
@@ -42,7 +44,7 @@ struct MapView: UIViewRepresentable {
             uiView.addOverlay(polygon)
         }
         
-        // Draw routes
+        // Draw ALL routes at once
         for route in routes {
             uiView.addOverlay(route.polyline)
         }
