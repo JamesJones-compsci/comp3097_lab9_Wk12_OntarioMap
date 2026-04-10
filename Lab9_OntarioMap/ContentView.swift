@@ -22,13 +22,25 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                Button(action: calculateRoutes) {
-                    Text("Show Route A → B → C → A")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
+                HStack {
+                    
+                    // ROUTE BUTTON
+                    Button(action: calculateRoutes) {
+                        Text("Show Route")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    
+                    // RESET BUTTON
+                    Button(action: resetMap) {
+                        Text("Reset")
+                            .padding()
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
                 }
                 .padding()
             }
@@ -58,5 +70,9 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    private func resetMap() {
+        locations.removeAll()
+        routes.removeAll()
     }
 }
